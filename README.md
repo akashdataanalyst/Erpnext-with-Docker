@@ -38,3 +38,13 @@ AWS Security Group mein Port 8080 allow karo, phir browser mein open karo:
 
 text
 http://YOUR_EC2_PUBLIC_IP:8080
+
+
+step6 -
+curl -I http://localhost:8080
+
+docker compose -f pwd.yml logs -f frontend
+
+curl -I http://localhost:8080
+
+sudo ufw status
