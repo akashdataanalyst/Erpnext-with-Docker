@@ -16,3 +16,4 @@ docker compose -f pwd.yml logs -f create-site
 
 http://YOUR_EC2_PUBLIC_IP:8080
 
+Done
