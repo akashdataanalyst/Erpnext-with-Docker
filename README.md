@@ -3,6 +3,7 @@
 
 sudo apt update && sudo apt upgrade -y
 curl -fsSL https://get.docker.com | sudo sh
+# Note ubuntu user name hai  "akash" 
 sudo usermod -aG docker ubuntu
 newgrp docker
 
