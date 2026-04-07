@@ -30,3 +30,10 @@ docker compose -f pwd.yml logs -f create-site
 http://YOUR_EC2_PUBLIC_IP:8080
 
 Done
+
+
+
+extra : 
+1 . docker compose down -v  # Down karne ke liye
+2 .docker compose -f pwd.yml up -d # Dubara Start Ke liye
+
