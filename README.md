@@ -24,7 +24,7 @@ nano .env
 
 docker compose -f pwd.yml up -d
 
-
+# Note pwd .env  FILE Main Sites ka naam bhee add karna hai
 docker compose -f pwd.yml logs -f create-site
 
 http://YOUR_EC2_PUBLIC_IP:8080
