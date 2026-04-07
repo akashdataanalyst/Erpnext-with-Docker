@@ -35,6 +35,34 @@ http://localhost:8080/
 
 Done
 
+# app Create calco_erp
+
+🔹 Step 1: Check karo app already bana hai ya nahi
+docker compose -f pwd.yml exec backend ls apps
+
+👉 Agar output mein calco_erp nahi hai → create karna padega
+
+🔹 Step 2: App create karo (agar nahi hai)
+docker compose -f pwd.yml exec backend bench new-app calco_erp
+🔹 Step 3: Site pe install karo
+docker compose -f pwd.yml exec backend bench --site calcoerp.com install-app calco_erp
+🔹 Step 4: Confirm
+docker compose -f pwd.yml exec backend bench --site calcoerp.com list-apps
+
+👉 Expected:
+
+frappe
+erpnext
+calco_erp ✅
+⚠️ Important (real-world issue jo log miss karte hain)
+🔸 Agar error aaye: ModuleNotFoundError
+
+Run:
+
+docker compose -f pwd.yml restart backend
+🔸 Agar migration error aaye
+docker compose -f pwd.yml exec backend bench --site calcoerp.com migrate
+
 
 
 extra : 
