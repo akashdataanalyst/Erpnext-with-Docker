@@ -12,6 +12,8 @@ cd frappe_docker
 
 docker compose -f pwd.yml up -d
 
+# Note PWD FILE Main Sites ka naam bhee add karna hai
+
 docker compose -f pwd.yml logs -f create-site
 
 http://YOUR_EC2_PUBLIC_IP:8080
