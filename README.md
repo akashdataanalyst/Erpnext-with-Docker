@@ -49,9 +49,9 @@ docker exec -it frappe_docker-backend-1 bash
 
 # Install app Check karne ke liye 
 bench list-apps
-# output
-# frappe  16.14.0 UNVERSIONED
-# erpnext 16.13.0 UNVERSIONED
+👉 Expected:
+            frappe  16.14.0 UNVERSIONED
+            erpnext 16.13.0 UNVERSIONED
 
 # Agar tumhe kisi specific site (jaise calcoerp.com) ke apps dekhne hain:
 bench --site calcoerp.com list-apps
@@ -84,13 +84,15 @@ docker compose -f pwd.yml exec backend bench new-app calco_erp
  # bahar ho toh
 docker compose -f pwd.yml exec backend bench --site calcoerp.com install-app calco_erp
 🔹 Step 4: Confirm
+ # Container ke undar ho toh
+ bench --site calcoerp.com list-apps
+ # bahar ho toh
 docker compose -f pwd.yml exec backend bench --site calcoerp.com list-apps
 
 👉 Expected:
-
-frappe
-erpnext
-calco_erp ✅
+           frappe
+           erpnext
+           calco_erp ✅
 ⚠️ Important (real-world issue jo log miss karte hain)
 🔸 Agar error aaye: ModuleNotFoundError
 
