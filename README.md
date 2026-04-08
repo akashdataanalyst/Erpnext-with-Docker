@@ -22,10 +22,10 @@ nano .env
 
 # Note example.env  FILE Main Sites ka naam bhee add karna hai
 
-docker compose -f pwd.yml up -d
 
 # FRAPPE_SITE_NAME_HEADER: calcoerp.com
 # Note pwd .env  FILE Main Sites ka naam bhee add karna hai
+docker compose -f pwd.yml up -d
 
 docker compose -f pwd.yml logs -f create-site
 
