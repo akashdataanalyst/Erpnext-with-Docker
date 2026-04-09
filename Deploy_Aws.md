@@ -4,6 +4,20 @@ git commit -m "Initial commit"
 git branch -M main
 git push -u origin main
 
+# install app ko hatana ke liye 
+bench --site calcoerp.com uninstall-app maintenance_management
+
+# install app delete karne ke liye 
+rm -rf apps/maintenance_management
+
+# Contaniner mai app add karna leke aana , migrate karna 
+bench get-app https://github.com/akashdataanalyst/maintenance.git
+
+# install 
+bench --site calcoerp.com install-app maintenance_management
+
+# migrate
+bench --site calcoerp.com  migrate
 
 
 # Deployment 2
