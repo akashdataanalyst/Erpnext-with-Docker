@@ -24,6 +24,8 @@ nano .env
 
 
 # Note pwd .env  FILE Main Sites ka naam bhee add karna hai
+
+nano pwd.yml
 # bench new-site calcoerp.com --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-                username=root --db-root-password=admin --install-app erpnext --set-default
 # FRAPPE_SITE_NAME_HEADER: calcoerp.com
 
@@ -73,7 +75,12 @@ docker compose -f pwd.yml exec backend ls apps
 
 👉 Agar output mein calco_erp nahi hai → create karna padega
 
-🔹 Step 2: App create karo (agar nahi hai)
+
+
+
+**************🔹 Step 2: App create karo (agar nahi hai)*****
+
+
  # Container ke undar ho toh 
  bench new-app calco_erp
  # bahar ho toh
