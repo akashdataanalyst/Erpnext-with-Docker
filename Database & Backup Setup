@@ -1,1 +1,78 @@
 
+🔥 COMPLETE FLOW (correct order)
+✅ Step 1 → RDS Instance banao (Database)
+
+👉 ye tumhara MariaDB replace karega
+
+✅ Step 2 → S3 Bucket banao (File storage)
+
+👉 ye tumhara files folder replace karega
+
+✅ Step 3 → ERPNext ko in dono se connect karo
+🟢 PEHLE RDS BANATE HAIN (step-by-step)
+1. AWS → RDS → Create database
+
+Select:
+
+Engine: MariaDB
+Template: Free tier (test ke liye)
+2. Basic settings
+DB instance name: erpnext-db
+Username: admin
+Password: strong password
+3. Connectivity
+VPC: same as EC2
+Public access: ❌ No
+Security Group: new create
+4. Create DB
+
+👉 5–10 min lagega
+
+5. Important (bahut zaroori ⚠️)
+
+RDS → Security Group → Inbound rules:
+
+Type	Port	Source
+MySQL	3306	EC2 Security Group
+
+👉 agar ye nahi kiya → ERPNext connect nahi karega
+
+6. Endpoint copy karo
+
+Example:
+
+erpnext-db.abc123.ap-south-1.rds.amazonaws.com
+🟢 AB S3 BANATE HAIN
+1. AWS → S3 → Create bucket
+Name: erpnext-files-akash
+Region: same as EC2
+Block public access: ❌ disable
+2. IAM user create karo
+
+IAM → Users → Create user
+
+Permissions:
+
+AmazonS3FullAccess
+
+👉 copy:
+
+Access key
+Secret key
+🟢 FINAL (IMPORTANT UNDERSTANDING)
+Component	Kaha chalega
+ERPNext App	EC2 (Docker)
+Database	RDS
+Files	S3
+🔥 SHORT ANSWER (tumhara doubt clear)
+
+👉 YES — pehle RDS aur S3 banega
+👉 uske baad hi ERPNext ko connect karoge
+
+🚀 NEXT STEP
+
+Agar ready ho, next main tumhe live karaunga:
+
+👉 Docker config me RDS kaise lagate hain
+👉 Site kaise create karte hain RDS pe
+👉 S3 ka real working test
