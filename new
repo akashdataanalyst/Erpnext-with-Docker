@@ -52,7 +52,7 @@ backend
 frontend
 redis
 ✅ STEP 6: DB container check करो (यहाँ सबसे ज्यादा गलती होती है)
-docker exec -it frappe_docker-db-1 bash
+docker exec -it frappe_docker_db_1 bash
 
 फिर:
 
@@ -70,13 +70,21 @@ SHOW DATABASES;
 
 ⚠️ IMPORTANT: Auto site creation skip करो
 
-docker exec -it frappe_docker-backend-1 bash
+docker exec -it frappe_docker_backend_1 bash
 
 फिर:
 
 bench new-site calcoerp.com \
 --admin-password admin \
 --mariadb-root-password admin
+
+फिर:
+
+Enter mysql super user [root]:
+
+👉 यहाँ:
+
+(बस Enter दबाओ)
 
 👉 अगर यहाँ error आए:
 
