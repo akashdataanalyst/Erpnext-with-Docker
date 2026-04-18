@@ -1,0 +1,88 @@
+✅ STEP 1: EC2 सही setup करो
+Ubuntu 22.04 instance use करो
+Security Group में ports open:
+22 (SSH)
+80 (HTTP)
+443 (HTTPS)
+
+SSH connect:
+
+ssh ubuntu@your-ec2-ip
+✅ STEP 2: Docker install
+sudo apt update
+sudo apt install docker.io docker-compose -y
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+Check:
+
+docker --version
+docker-compose --version
+✅ STEP 3: Official Frappe Docker repo clone
+git clone https://github.com/frappe/frappe_docker
+cd frappe_docker
+✅ STEP 4: Correct .env file बनाओ (ये बहुत important है ⚠️)
+
+
+cp example.env .env
+nano .env
+
+Paste 👇
+MYSQL_ROOT_PASSWORD=admin
+ADMIN_PASSWORD=admin
+
+❌ ये मत डालो:
+
+SITES=calcoerp.com
+INSTALL_APPS=erpnext
+
+👉 ये अक्सर DB create issue करता है
+
+✅ STEP 5: Containers start करो
+docker-compose -f pwd.yml up -d
+
+Check:
+
+docker ps
+
+👉 Ensure these running:
+
+db
+backend
+frontend
+redis
+✅ STEP 6: DB container check करो (यहाँ सबसे ज्यादा गलती होती है)
+docker exec -it frappe_docker-db-1 bash
+
+फिर:
+
+mysql -u root -p
+
+password: admin
+
+Check DB:
+
+SHOW DATABASES;
+
+👉 अगर यहाँ MySQL नहीं खुल रहा → DB container issue है
+
+✅ STEP 7: Site manually create करो (AUTO नहीं)
+
+⚠️ IMPORTANT: Auto site creation skip करो
+
+docker exec -it frappe_docker-backend-1 bash
+
+फिर:
+
+bench new-site calcoerp.com \
+--admin-password admin \
+--mariadb-root-password admin
+
+👉 अगर यहाँ error आए:
+
+"Access denied" → root password mismatch
+"Can't connect" → db hostname गलत
+✅ STEP 8: erpnext install करो
+bench --site calcoerp.com install-app erpnext
+✅ STEP 9: Default site set करो
+bench use calcoerp.com
