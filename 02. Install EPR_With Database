@@ -89,6 +89,10 @@ cat sites/calcoerp.com/site_config.json
  "db_type": "mariadb",
  "db_user": "_80c3f4f986f307f0"
 }
+✅ STEP 10: Check install Apps
+
+# Agar tumhe kisi specific site (jaise calcoerp.com) ke apps dekhne hain:
+bench --site calcoerp.com list-apps
 
 
 ✅ STEP 6: DB container check करो (यहाँ सबसे ज्यादा गलती होती है)
