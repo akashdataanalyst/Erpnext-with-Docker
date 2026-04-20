@@ -114,6 +114,11 @@ cat sites/calcoerp.com/site_config.json
 agar depoy karne ke baad bhee bhee ui pr show nahi ho raha hai then pwd se bydefult change karo 
 nano pwd.yml
 
+nano pwd.yml
+# bench new-site  --mariadb-user-host-login-scope='%' --admin-password=admin --db-root-                username=root --db-root-password=admin --install-app erpnext --set-default calcoerp.com
+
+# FRAPPE_SITE_NAME_HEADER: calcoerp.com
+
 
 
 
